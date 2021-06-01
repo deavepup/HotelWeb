@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace WebApplication3.Models
         public List<Payment> payments { get; set; }
 
         public byte[] Image { get; set; }
-
+        public IFormFile Upload { get; set; }
 
         public int rsID { get; set; }
         public int roomid { get; set; }

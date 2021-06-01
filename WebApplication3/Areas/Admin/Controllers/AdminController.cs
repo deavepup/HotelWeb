@@ -57,6 +57,8 @@ namespace WebApplication3.Areas.Admin.Controllers
             return View();
         }
 
+        
+
         [Authorize]
         public ActionResult RoomList()
         {

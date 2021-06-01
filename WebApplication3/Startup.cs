@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using WebApplication3.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplication3
 {
@@ -59,7 +60,7 @@ options.UseSqlServer(Configuration.GetConnectionString("connection")));
             }
 
 
-            /*  app.UseEndpoints(endpoints =>
+              /*app.UseEndpoints(endpoints =>
               {
                   endpoints.MapControllerRoute(
                       name: "default",
@@ -68,7 +69,7 @@ options.UseSqlServer(Configuration.GetConnectionString("connection")));
               });*/
 
 
-            app.UseMvc(routes =>
+           app.UseMvc(routes =>
             {
                 routes.MapRoute(
               name: "area",

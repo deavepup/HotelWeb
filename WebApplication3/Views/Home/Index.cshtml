@@ -44,7 +44,7 @@
                             <div class="col-sm-3">
                                 <div class="md-form py-2 ">
                                     <label for="inputMDEx">GİRİŞ</label>
-                                    <input type="date" id="entryDT" name="checkIn" class="form-control">
+                                    <input type="date" id="checkIn" name="checkIn" class="form-control">
 
                                 </div>
                             </div>
@@ -233,3 +233,10 @@
     </div>
 </div>
 <!--ODA BİTİŞ-->
+<script>window.onload = function () {
+
+        document.getElementById('checkIn').valueAsDate = new Date();
+        var a = new Date();
+        a.setDate(a.getDate() + 1)
+        document.getElementById('checkOUT').valueAsDate = a;
+    };</script>

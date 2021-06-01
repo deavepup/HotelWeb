@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KB2rwVyXX0UHwCJ45Tiwue4jKip2YLWKetObIKcf0SuXfuZJ+iFrwFRpcHHvaKmodWka9k6C53wP3vsbgUMOUw==",
+  "dgSpecHash": "iOkM+KK0SVBMEF5ydR7qhO0gAxt2Tw1ri/rbsmhcAlnrdiv0U9rwS/xSJuDekpSEy25xWDvT3MHmtngVBw4LqQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Hüseyin\\Desktop\\HotelWeb-master\\WebApplication3\\WebApplication3.csproj",
+  "projectFilePath": "C:\\Users\\Hüseyin\\Desktop\\backup\\HotelWeb\\WebApplication3\\WebApplication3.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hüseyin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Hüseyin\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

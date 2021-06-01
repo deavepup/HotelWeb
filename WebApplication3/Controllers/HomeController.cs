@@ -8,6 +8,8 @@ using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication3.Models;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace WebApplication3.Controllers
 {
@@ -26,7 +28,7 @@ namespace WebApplication3.Controllers
             };
             return View(mainmodel);
         }
-
+        
         public ActionResult Rooms(int id,int? otherID, int? typeID)
         {
             using (var db = new HotelWebContext())
@@ -236,7 +238,7 @@ namespace WebApplication3.Controllers
             using (var db = new HotelWebContext())
             {
                 var model = db.Rooms
-    .Where(z => (z.OtherTypeId == z.OtherType.OtherTypeId && z.RoomTypeId == z.RoomType.RoomTypeId && z.StatusId == z.Status.RoomStatusId) || z.StatusId==1)
+    .Where(z => (z.OtherTypeId == z.OtherType.OtherTypeId && z.RoomTypeId == z.RoomType.RoomTypeId && z.StatusId == z.Status.RoomStatusId) && z.StatusId==1)
     .Include(r => r.OtherType)
     .Include(r => r.RoomType)
     .Include(r => r.Status)
