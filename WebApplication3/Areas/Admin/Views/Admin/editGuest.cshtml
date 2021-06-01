@@ -1,0 +1,96 @@
+﻿@model WebApplication3.Models.MainViewModel
+
+
+@{
+    ViewData["Title"] = "Misafir Düzenleme";
+}
+
+
+<div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <div class="container-fluid">
+                            <h1>Oda Düzenleme</h1>
+                            <hr>
+                            @foreach (var item in Model.guests)
+                            {
+                                <form id="EditForm" action="@Url.Action("editGuest", "Admin")" method="get">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div id="successfail"></div>
+                                        </div>
+                                    </div>
+                                    <input style="display:none" name="gID" id="gID" value="@item.GuestId" />
+                                    <div class="form-row">
+                                        <div class="col-12 col-md-6" id="message">
+                                            <div class="form-group">
+                                                <label for="from-name">Adı</label><span class="required-input">*</span>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-home"></i></span></div><input class="form-control" type="text" id="Name" name="Name" required="" value="@item.FirstName" placeholder="Adı">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="from-email">Soyadı</label><span class="required-input">*</span>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-map-pin"></i></span></div><input id="surName" name="surName" class="form-control" type="text" value="@item.LastName" placeholder="Soyadı">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-12 col-sm-6 col-md-12 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="from-phone">Email</label><span class="required-input">*</span>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-bitcoin"></i></span></div><input value="@item.Email" class="form-control" type="email" id="email" name="email" required="" placeholder="E-posta">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="from-phone"><strong>Telefon Numarası</strong><br></label><span class="required-input">*</span>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-battery-half"></i></span></div><input value="@item.Phone" class="form-control" type="text" id="phone" name="phone" required="" placeholder="Telefon Numarası">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-md-12 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="from-calltime">Şehir</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-hourglass-start"></i></span></div><input value="@item.City" class="form-control" id="city" name="city">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="from-phone">Ülke<br></label><span class="required-input">*</span>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-bitcoin"></i></span></div><input value="@item.Country" class="form-control" type="text" id="country" name="country" required="" placeholder="country">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                            <label for="from-phone">Adres</label><span class="required-input">*</span>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-gears"></i></span></div><textarea name="adress" id="services" class="form-control">@item.Adress</textarea>
+                                                            </div>
+                                                        </div><button class="btn btn-primary btn-block" type="submit">Submit <i class="fa fa-chevron-circle-right"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr class="d-flex d-md-none">
+                                        </div>
+
+                                    </div>
+                                </form>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

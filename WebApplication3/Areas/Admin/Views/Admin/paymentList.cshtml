@@ -1,0 +1,74 @@
+﻿@model WebApplication3.Models.MainViewModel
+
+
+@{
+    ViewData["Title"] = "Ödemeler";
+}
+<div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-6">
+                    <h3 class="text-dark mb-4">Ödeme İşlemleri</h3>
+                </div>
+            </div>
+            <div class="card" id="TableSorterCard">
+                <div class="card-header py-3">
+                    <div class="row table-topper align-items-center">
+                        <div class="col-12 col-sm-5 col-md-6 text-left" style="margin: 0px;padding: 5px 15px;">
+                            <p class="text-primary m-0 font-weight-bold">Rezervasyon Listesi</p>
+                        </div>
+                        <div class="col-12 col-sm-7 col-md-6 text-right" style="margin: 0px;padding: 5px 15px;"><button onclick="reloadPage()" class="btn btn-primary btn-sm reset" type="reset" style="margin: 2px;"><i class="fa fa-repeat"></i></button><button class="btn btn-warning btn-sm" id="zoom_in" type="button" zoomclick="ChangeZoomLevel(-10);" style="margin: 2px;"><i class="fa fa-search-plus"></i></button><button class="btn btn-warning btn-sm" id="zoom_out" type="button" zoomclick="ChangeZoomLevel(-10);" style="margin: 2px;"><i class="fa fa-search-minus"></i></button></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped table tablesorter" id="ipi-table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th class="text-center">Ödeme Numarası</th>
+                                        <th class="text-center">Misafir Numarası</th>
+                                        <th class="text-center">rezervasyon Numarası</th>
+                                        <th class="text-center">Ad </th>
+                                        <th class="text-center">Soyad </th>
+                                        <th class="text-center">Fiyat<br></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    @foreach (var item in Model.payments)
+                                    {
+                                        <tr>
+                                            <td>@item.PaymentId</td>
+                                            <td>@item.GuestId</td>
+                                            <td>@item.ReservetionId</td>
+                                            <td>@item.FirstName</td>
+                                            <td>@item.LastName</td>
+                                            <td>@item.Totalprice</td>
+                                            <td>
+                                                <form action="@Url.Action("deletePayment", "Admin")" method="get">
+                                                    <input value="@item.PaymentId" name="pID" class="form-control" type="text" style="display:none;" />
+                                                    <button class="btn btn-danger" type="submit" role="button" style="margin: 2px;"><i class="fas fa-trash"></i></button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function reloadPage() {
+        window.location.reload()
+    }
+</script>

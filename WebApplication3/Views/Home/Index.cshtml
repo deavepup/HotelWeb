@@ -1,0 +1,235 @@
+﻿@{
+    ViewData["Title"] = "Anasayfa";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model WebApplication3.Models.MainViewModel
+<section class="menu bg-image d-flex  align-items-center "
+         style="background-image: url('images/headerarkaplan1.jpg');">
+    <!--HEADERARKAPLAN-->
+    <div class="container">
+        <div class="row">
+
+            <!--HEADER  BAŞLANGIÇ-->
+
+            <div class="col-12 ">
+                <div class="container">
+                    <div class="row">
+                        <div style="font-family: 'Noto Sans JP', sans-serif;" class="col-10 text-light   ">
+                            <h1 class="yazi d-none d-xl-block mb-3">@foreach (var item in Model.settings)
+                            {
+                                @item.SiteName
+                            }</h1>
+                            <h4>Uluslararası seyahat önerileri ve düşük fiyatlı otel odaları bulma önerileri de dahil olmak üzere en iyi hotel rezervasyon sitesine hoşgeldiniz.</h4>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+        <!--HEADER BİTİŞ -->
+        <!-- ODA SEÇME BAŞLANGIÇ -->
+
+        <div class="col-12">
+            <div style="font-family: 'Noto Sans JP', sans-serif;" class="tarih text-light">
+                <div class="container py-5">
+                    <form name="res" method="get" action="/Home/Rooms">
+                        <div class="row">
+
+
+
+                            <div class="col-sm-3">
+                                <div class="md-form py-2 ">
+                                    <label for="inputMDEx">GİRİŞ</label>
+                                    <input type="date" id="entryDT" name="checkIn" class="form-control">
+
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="md-form py-2 ">
+                                    <label for="inputMDEx">ÇIKIŞ</label>
+                                    <input type="date" id="checkOUT" name="checkOUT" class="form-control">
+
+                                </div>
+                            </div>
+                            <div class="col-sm-3 ">
+                                <div class="form-group py-2 ">
+                                    <label for="inputState ">KİŞİ</label>
+                                    <select class=" custom-select custom-select" name="capacity" id="capacity">
+                                        @foreach (var item in Model.rooms)
+                                        {
+                                            <option id="capacity" value="@item.OtherTypeId">@item.OtherType.Capacity</option>
+                                        }
+                                        <!-- <option selected>YETİŞKİN 1</option>
+                    <option value="1">YETİŞKİN 2</option>
+                    <option value="2">YETİŞKİN 3</option>
+                    <option value="3">YETİŞKİN 4</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 ">
+                                <div class="form-group py-2  ">
+                                    <label for="inputState">ODA</label>
+                                    <select class=" custom-select custom-select" name="type" id="type">
+                                        @foreach (var item in Model.rooms)
+                                        {
+                                            <option id="type" value="@item.RoomTypeId">@item.RoomType.RoomTypeName</option>
+                                        }
+                                        <!-- <option selected>ODA 1</option>
+                    <option value="1">ODA 2</option>
+                    <option value="2">ODA 3</option>
+                    <option value="3">ODA 4</option>-->
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="blabla text-right">
+                            <button class="btn btn-info btn-lg"  type="submit">MÜSAİTLİK ARA</button>
+                        </div>
+                    </form>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<div class="about text-center">
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-8">
+                <h4 class="baslik text-info my-5">HAKKIMIZDA</h4>
+                @foreach (var item in Model.settings)
+                {
+                    <h1 style="margin-bottom:20px; margin-top:70px;">@item.AboutUsHeader</h1>
+                    <p>@item.AboutUs</p>
+                }
+
+            </div>
+            <div class="col-sm-4 my-5">
+                <div class="imgabout my-5">
+                    <img src="~/images/about1.jpg" width="100%" height="auto" alt="">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
+
+
+<!--HİZMETLER BAŞLANGIÇ-->
+<div class="hizmetler justify-content-end text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="baslik text-info my-5">HİZMETLERİMİZ</h4>
+                <h1>Biz sizin için ne yapıyoruz ?</h1>
+            </div>
+            <div class="col-md-4 my-5 ">
+                <div class="box  px-4">
+                    <i class="fas fa-map-marker"></i>
+                    <h4>Gezi Planı</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ab nulla id, accusamus quidem alias ut voluptates beatae molestias, officiis sit obcaecati culpa ea commodi cum et quia omnis incidunt!</p>
+                </div>
+            </div>
+            <div class="col-md-4 my-5">
+                <div class="box  px-4">
+                    <i class="fas fa-utensils"></i>
+                    <h4>Yemek Servisi</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ab nulla id, accusamus quidem alias ut voluptates beatae molestias, officiis sit obcaecati culpa ea commodi cum et quia omnis incidunt!</p>
+                </div>
+            </div>
+            <div class="col-md-4 my-5">
+                <div class="box px-4">
+                    <i class="fas fa-bed"></i>
+                    <h4>Bebek Yatağı</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ab nulla id, accusamus quidem alias ut voluptates beatae molestias, officiis sit obcaecati culpa ea commodi cum et quia omnis incidunt!</p>
+                </div>
+            </div>
+            <div class="col-md-4  my-5">
+                <div class="box  px-4">
+                    <i class="fas fa-car"></i>
+                    <h4>Araba Park</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ab nulla id, accusamus quidem alias ut voluptates beatae molestias, officiis sit obcaecati culpa ea commodi cum et quia omnis incidunt!</p>
+                </div>
+            </div>
+            <div class="col-md-4  my-5">
+                <div class="box  px-4">
+                    <i class="fas fa-toilet"></i>
+                    <h4>Temizlik/Hijyen</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ab nulla id, accusamus quidem alias ut voluptates beatae molestias, officiis sit obcaecati culpa ea commodi cum et quia omnis incidunt!</p>
+                </div>
+            </div>
+            <div class="col-md-4  my-5">
+                <div class="box  px-4">
+                    <i class="fas fa-cocktail"></i>
+                    <h4>Bar</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ab nulla id, accusamus quidem alias ut voluptates beatae molestias, officiis sit obcaecati culpa ea commodi cum et quia omnis incidunt!</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<hr>
+<!--HİZMETLER BİTİŞ-->
+<!--ODA BAŞLANGIÇ-->
+<div style="background-color:white; margin-top: 100px;" class="jumbotron">
+    <div class="odafiyatlari justify-content-end text-center mx-auto">
+        <div class="odaimg">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-3 py-4">
+                        <div style="border-radius: 10px;" class="card mx-auto" style="width: 18rem;">
+                            <img class="card-img-top " src="~/images/oda1.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">İki Kişilik İkiz Yataklı Oda</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="@Url.Action("Rooms","Home")" class="btn btn-info">Odaya Git</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 py-4">
+                        <div style="border-radius: 10px;" class="card mx-auto" style="width: 18rem;">
+                            <img class="card-img-top" src="~/images/oda2.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Tek Kişilik Standart Oda</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="@Url.Action("Rooms","Home")" class="btn btn-info">Odaya Git</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 py-4">
+                        <div style="border-radius: 10px;" class="card mx-auto" style="width: 18rem;">
+                            <img class="card-img-top" src="~/images/oda3.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Üç Kişilik Oda</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="@Url.Action("Rooms","Home")" class="btn btn-info">Odaya Git</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 py-4">
+                        <div style="border-radius: 10px;" class="card mx-auto" style="width: 18rem;">
+                            <img class="card-img-top" src="~/images/oda4.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Aile Odası</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="@Url.Action("Rooms","Home")" class="btn btn-info">Odaya Git</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--ODA BİTİŞ-->

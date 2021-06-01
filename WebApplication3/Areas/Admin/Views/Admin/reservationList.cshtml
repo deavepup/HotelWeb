@@ -1,0 +1,82 @@
+﻿@model WebApplication3.Models.MainViewModel
+
+
+@{
+    ViewData["Title"] = "Rezervasyon Listesi";
+}
+<div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-6">
+                    <h3 class="text-dark mb-4">Rezervasyon İşlemleri</h3>
+                </div>
+            </div>
+            <div class="card" id="TableSorterCard">
+                <div class="card-header py-3">
+                    <div class="row table-topper align-items-center">
+                        <div class="col-12 col-sm-5 col-md-6 text-left" style="margin: 0px;padding: 5px 15px;">
+                            <p class="text-primary m-0 font-weight-bold">Rezervasyon Listesi</p>
+                        </div>
+                        <div class="col-12 col-sm-7 col-md-6 text-right" style="margin: 0px;padding: 5px 15px;"><button onclick="reloadPage()" class="btn btn-primary btn-sm reset" type="reset" style="margin: 2px;"><i class="fa fa-repeat"></i></button><button class="btn btn-warning btn-sm" id="zoom_in" type="button" zoomclick="ChangeZoomLevel(-10);" style="margin: 2px;"><i class="fa fa-search-plus"></i></button><button class="btn btn-warning btn-sm" id="zoom_out" type="button" zoomclick="ChangeZoomLevel(-10);" style="margin: 2px;"><i class="fa fa-search-minus"></i></button></div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped table tablesorter" id="ipi-table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th class="text-center">Rezervasyon Numarası</th>
+                                        <th class="text-center">Oda Numarası</th>
+                                        <th class="text-center">Misafir Numarası</th>
+                                        <th class="text-center">Giriş Tarihi</th>
+                                        <th class="text-center">Çıkış Tarihi</th>
+                                        <th class="text-center">Misafirler<br></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    @foreach (var item in Model.reservations)
+                                    {
+                                        <tr>
+                                            <td>@item.ReservationId</td>
+                                            <td>@item.RoomId</td>
+                                            <td>@item.GuestId</td>
+                                            <td>@item.CheckIdDate</td>
+                                            <td>@item.CheckOutDate</td>
+                                            <td>@item.Guest</td>
+                                            <td>
+                                                <form action="@Url.Action("deleteRes", "Admin")" method="get">
+                                                    <input value="@item.ReservationId" name="resID" class="form-control" type="text" style="display:none;" />
+                                                    <button class="btn btn-danger" type="submit" role="button" style="margin: 2px;"><i class="fas fa-trash"></i></button>
+                                                </form>
+                                                <form action="@Url.Action("editReservation", "Admin")" method="get">
+                                                    <input value="@item.ReservationId" name="resID" class="form-control" type="text" style="display:none;" />
+                                                    <button class="btn btn-success" role="button" type="submit" style="background: rgb(11,171,56);margin: 2px;">
+                                                        <i class="fas fa-pencil-alt"></i>
+
+                                                    </button>
+
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function reloadPage() {
+        window.location.reload()
+    }
+</script>

@@ -1,0 +1,123 @@
+﻿@model WebApplication3.Models.MainViewModel
+@{
+    ViewData["Title"] = "Reservation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="1.kısımbaslık">
+    <div style="margin-top: 100px;" class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="baslik text-info text-center">REZERVASYON</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="solkart">
+    <div class="container">
+        <form name="save" method="get" action="/Home/rv">
+            <div class="row">
+                <div class="col-md-4 py-5">
+
+                    <input name="roomID" value="@Model.roomid" id="roomID" type="text" style="display:none" />
+                    <div style="background-color: #193441;" class="carda" style="width: 18rem;">
+
+                        <img class="card-img-top" src="/Home/RetrieveImage/@Model.roomid" alt="Card image cap">
+                        <div class="card-body">
+                            <h6 class="card-title text-center text-white">REZERVASYONUNUZ</h6>
+                            <div class="row text-center ">
+
+                                <div style="background-color: #3E606F;border-radius: 5px;margin-left: 12px; " class="col-5 text-white">
+                                    <h3 style="color: #FFF4E0;">GİRİŞ</h3>
+                                    <br>
+                                    <h3 style="color: #FFF4E0;">@Model.checkIn.Day</h3>
+                                    <br>
+                                    <p style="color: #FFF4E0;">@Model.checkIn.Month,@Model.checkIn.Year</p>
+                                    <input name="checkIn" style="display:none" type="text" id="checkIn" value="@Model.checkIn" />
+                                </div>
+                                <div style="background-color: #3E606F;border-radius: 5px;margin-left: 28px; " class="col-5 text-white">
+                                    <h3 style="color: #FFF4E0;">ÇIKIŞ</h3>
+                                    <br> <h3 style="color: #FFF4E0;">@Model.checkOUT.Day</h3>
+                                    <br> <p style="color: #FFF4E0;">@Model.checkOUT.Month,@Model.checkOUT.Year</p>
+                                    <input name="checkOUT" style="display:none" type="text" id="checkOUT" value="@Model.checkOUT" />
+                                </div>
+                                <div style="background-color: #3E606F;border-radius: 5px;margin-left: 12px; margin-top: 20px;color: #FFF4E0;" class="col-5 ">
+                                    <h3>@Model.guest</h3>
+                                    <input name="guest" style="display:none" type="text" id="guest" value="@Model.guest" />
+                                    <br><p>MİSAFİR</p>
+                                </div>
+                                <div style="background-color: #3E606F;border-radius: 5px;margin-left: 28px; margin-top:20px;color: #FFF4E0;" class="col-5 ">
+                                    <h3>@Model.day</h3>  <br><p>Gece</p>
+                                </div>
+                                <div style="background-color: #3E606F;margin-top:20px;" class="col-12 text-white">
+                                    <h1>@Model.price₺</h1>
+                                    <input name="price" style="display:none" type="text" id="price" value="@Model.price" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 py-5">
+                    <div class="row">
+                        <div class="col-6 ">
+                            <label class="form-label" for="typeText">AD:</label>
+                            <div class="form-outline">
+                                <input type="text" id="name" name="name" class="form-control" />
+
+                            </div>
+                        </div>
+                        <div class="col-6 ">
+                            <label class="form-label" for="typeText">SOYAD:</label>
+                            <div class="form-outline">
+                                <input type="text" name="surName" id="surName" class="form-control" />
+
+                            </div>
+                        </div>
+                        <div class="col-6 py-5">
+                            <label class="form-label" for="typeText">MAİL ADRESİ:</label>
+                            <div class="form-outline">
+                                <input type="email" id="email" name="email" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-6 py-5">
+                            <label class="form-label" for="typeText">TELEFON NUMARASI:</label>
+                            <div class="form-outline">
+                                <input type="tel" id="phone" name="phone" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-6 py-4">
+                            <label class="form-label" for="typeText">ADRES:</label>
+                            <div class="form-outline">
+                                <input type="text" id="address" name="address" class="form-control" />
+
+                            </div>
+                        </div>
+                        <div class="col-6 py-4">
+                            <label class="form-label" for="typeText">ŞEHİR:</label>
+                            <div class="form-outline">
+                                <input type="text" id="city" name="city" class="form-control" />
+
+                            </div>
+                        </div>
+                        <div class="col-6 py-4">
+                            <label class="form-label" for="typeText">ÜLKE:</label>
+                            <div class="form-outline">
+                                <input type="text" id="country" name="country" class="form-control" />
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <div class="blabla mx-auto py-2">
+                            <button class="btn btn-info btn-sm py-2" type="submit">REZERVASYONU ONAYLA</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+</div>
+

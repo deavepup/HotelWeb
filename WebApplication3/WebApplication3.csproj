@@ -1,0 +1,77 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>f26db06d-4ca6-4927-b518-1a3d8392eb2c</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\bootstrap\css\bootstrap.min.css" />
+    <None Include="wwwroot\assets\bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\assets\css\Login-Form-Dark.css" />
+    <None Include="wwwroot\assets\css\Ludens---1-Index-Table-with-Search--Sort-Filters-1.css" />
+    <None Include="wwwroot\assets\fonts\fa-brands-400.eot" />
+    <None Include="wwwroot\assets\fonts\fa-brands-400.svg" />
+    <None Include="wwwroot\assets\fonts\fa-brands-400.ttf" />
+    <None Include="wwwroot\assets\fonts\fa-brands-400.woff" />
+    <None Include="wwwroot\assets\fonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\assets\fonts\fa-regular-400.eot" />
+    <None Include="wwwroot\assets\fonts\fa-regular-400.svg" />
+    <None Include="wwwroot\assets\fonts\fa-regular-400.ttf" />
+    <None Include="wwwroot\assets\fonts\fa-regular-400.woff" />
+    <None Include="wwwroot\assets\fonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\assets\fonts\fa-solid-900.eot" />
+    <None Include="wwwroot\assets\fonts\fa-solid-900.svg" />
+    <None Include="wwwroot\assets\fonts\fa-solid-900.ttf" />
+    <None Include="wwwroot\assets\fonts\fa-solid-900.woff" />
+    <None Include="wwwroot\assets\fonts\fa-solid-900.woff2" />
+    <None Include="wwwroot\assets\fonts\font-awesome.min.css" />
+    <None Include="wwwroot\assets\fonts\fontawesome-all.min.css" />
+    <None Include="wwwroot\assets\fonts\fontawesome-webfont.eot" />
+    <None Include="wwwroot\assets\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\assets\fonts\fontawesome-webfont.ttf" />
+    <None Include="wwwroot\assets\fonts\fontawesome-webfont.woff" />
+    <None Include="wwwroot\assets\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\assets\fonts\FontAwesome.otf" />
+    <None Include="wwwroot\assets\fonts\fontawesome5-overrides.min.css" />
+    <None Include="wwwroot\assets\fonts\ionicons.eot" />
+    <None Include="wwwroot\assets\fonts\ionicons.min.css" />
+    <None Include="wwwroot\assets\fonts\ionicons.svg" />
+    <None Include="wwwroot\assets\fonts\ionicons.ttf" />
+    <None Include="wwwroot\assets\fonts\ionicons.woff" />
+    <None Include="wwwroot\assets\img\avatars\avatar1.jpeg" />
+    <None Include="wwwroot\assets\img\avatars\avatar2.jpeg" />
+    <None Include="wwwroot\assets\img\avatars\avatar3.jpeg" />
+    <None Include="wwwroot\assets\img\avatars\avatar4.jpeg" />
+    <None Include="wwwroot\assets\img\avatars\avatar5.jpeg" />
+    <None Include="wwwroot\assets\img\dogs\image2.jpeg" />
+    <None Include="wwwroot\assets\img\dogs\image3.jpeg" />
+    <None Include="wwwroot\assets\img\star-sky.jpg" />
+    <None Include="wwwroot\assets\js\bs-init.js" />
+    <None Include="wwwroot\assets\js\chart.min.js" />
+    <None Include="wwwroot\assets\js\jquery.min.js" />
+    <None Include="wwwroot\assets\js\Ludens---1-Index-Table-with-Search--Sort-Filters-1.js" />
+    <None Include="wwwroot\assets\js\particlesJS.js" />
+    <None Include="wwwroot\assets\js\theme.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,94 @@
+﻿@model WebApplication3.Models.MainViewModel
+@{
+    ViewData["Title"] = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Dark"] = "text-dark";
+    ViewData["Info"] = "text-info";
+}
+
+<div class="hakkımızdaıcerık  mx-auto">
+    <div class="container">
+        <h1 style="margin-top: 200px;margin-bottom: 200px ;font-family: 'Playfair Display', serif;" class="text-center text-dark ">HAKKIMIZDA</h1>
+        <div class="row">
+            <div class="col-xl-8">
+                @foreach (var item in Model.settings)
+                {
+                    <h1 style="margin-bottom: 40px;">@item.SiteName Hoşgeldiniz</h1>
+                    <p>@item.AboutUs</p>
+                    }
+                </div>
+                <div style="margin-top: 10px;" class="col-xl-4">
+                    <h6><i style="margin-bottom: 10px;color: orangered ;font-size: 20px;" class="fas fa-check"></i>&nbsp&nbspKonaklamada% 20 İndirim.</h6><br>
+                    <h6><i style="margin-bottom: 10px;color: orangered ;font-size: 20px;" class="fas fa-check"></i>&nbsp&nbspÜcretsiz Günlük Kahvaltı.</h6><br>
+                    <h6><i style="margin-bottom: 10px;color: orangered ;font-size: 20px;" class="fas fa-check"></i>&nbsp&nbspGünde 3 Adet Çamaşır Yıkama.</h6><br>
+                    <h6><i style="margin-bottom: 10px;color: orangered ;font-size: 20px;" class="fas fa-check"></i>&nbsp&nbspÜcretsiz İnternet.</h6><br>
+                    <h6><i style="margin-bottom: 10px;color: orangered ;font-size: 20px;" class="fas fa-check"></i>&nbsp&nbspYiyecek ve İçeceklerde% 20 İndirim.</h6><br>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    <div class="sa justify-content-end text-center mx-auto">
+        <div class="container">
+            <div class="row">
+                <div style="margin-top: px;" class="col-xl-12 text-dark">
+                    <div style="background-color: white;border-radius: 10px;" class="jumbotron">
+                    </div>
+                    -
+                </div>
+
+                <div class="col-xl-4 py-4">
+                    <div style="border-radius: 10px;" class="card mx-auto" style="width: 18rem;">
+                        <img class="card-img-top " src="~/images/restoran.webp" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">RESTORAN SERVİSİ</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4  py-4">
+                    <div style="border-radius: 10px;" class="card mx-auto" style="width: 18rem;">
+                        <img class="card-img-top" src="~/images/eglence.jpeg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">ETKİNLİK & PARTİ</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 py-4">
+                    <div style="border-radius: 10px;" class="card mx-auto" style="width: 18rem;">
+                        <img class="card-img-top" src="~/images/kamp.jpeg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">SEYAHAT & KAMP</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <hr>
+    <div style="margin-top: 100px;" class="calısmalarıkesfedın d-none d-xl-block">
+        <div class="container">
+            <p class="baslik text-info text-center">GALERİMİZ</p>
+            <h1 style="margin-bottom: 100px;" class="baslik text-dark  text-center">Çalışmalarımızı Keşfedin</h1>
+            <div class="row">
+                <div class="col-xl-6 ">
+                    <img style="margin-bottom: 10px; border-radius: 10px;" src="~/images/calısma1.jpg" alt="">
+                    <img style="border-radius: 10px;" src="~/images/calısma2.jpg" alt="">
+                    <img style="border-radius: 10px;" src="~/images/calısma3.jpg" alt="">
+                </div>
+                <div class="col-xl-6"><img style="border-radius: 10px;" src="~/images/calısma4.jpg" alt=""></div>
+            </div>
+        </div>
+    </div>
+
+
+

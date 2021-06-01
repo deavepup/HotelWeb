@@ -1,0 +1,100 @@
+﻿@model WebApplication3.Models.MainViewModel
+@{
+    ViewData["Title"] = "editReservation";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <div class="container-fluid">
+                            <h1>Rezervasyon Düzenleme</h1>
+                            <hr>
+                            @foreach (var item in Model.reservations)
+                            {
+                                <form id="EditForm" action="@Url.Action("editReservation", "Admin")" method="get">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div id="successfail"></div>
+                                        </div>
+                                    </div>
+                                    <input style="display:none" name="resID" id="resID" value="@item.ReservationId" />
+                                    <div class="form-row">
+                                        <div class="col-12 col-md-6" id="message">
+                                            <div class="form-group">
+                                                <label for="from-name">Oda Listesi</label><span class="required-input">*</span>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-home"></i></span></div><select id="roomID" name="roomID" class="form-control">
+                                                        <optgroup>
+                                                            @foreach (var type in Model.rooms)
+                                                            {
+
+                                                                <option name="roomID" id="roomID" value="@type.RoomId">@type.OtherType.OtherTypeName</option>
+                                                            }
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="from-email">Misafir Listesi</label><span class="required-input">*</span>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-map-pin"></i></span></div><select id="guestID" name="guestID" class="form-control">
+                                                        <optgroup>
+                                                            @foreach (var type in Model.guests)
+                                                            {
+
+                                                                <option name="guestID" id="guestID" value="@type.GuestId">@type.GuestId @type.FirstName @type.LastName</option>
+                                                            }
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-12 col-sm-6 col-md-12 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="from-phone">GİRİŞ TARİHİ</label><span class="required-input">*</span>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-bitcoin"></i></span></div><input value="@Model.checkIn.ToShortDateString()" class="form-control" type="date" id="inDate" name="inDate" required="" placeholder="Fiyat">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="from-phone"><strong>Misafir Sayısı</strong><br></label><span class="required-input">*</span>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-battery-half"></i></span></div><input style="border-radius:5px;" type="number" value="@item.Guest" id="guest " name="guest" min="0" max="5">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-md-12 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="from-calltime">ÇIKIŞ TARİHİ</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-hourglass-start"></i></span></div><input type="date" class="form-control" id="outDate" value="@Model.checkOUT.ToShortDateString()" name="outDate"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <button class="btn btn-primary btn-block" type="submit">Submit <i class="fa fa-chevron-circle-right"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr class="d-flex d-md-none">
+                                        </div>
+
+                                    </div>
+                                </form>
+                            }
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

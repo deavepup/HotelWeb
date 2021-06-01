@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard - Brand</title>
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="~/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="~/assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="~/assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="~/assets/css/Ludens---1-Index-Table-with-Search--Sort-Filters-1.css">
+</head>
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-light align-items-start bounce animated sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="@Url.Action("Index", "Admin")">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>Brand</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item text-white">
+                        <a class="nav-link" href="@Url.Action("Index", "Admin")"><i class="fa fa-home"></i><span>Anasayfa</span></a>
+                        <div class="nav-item dropdown">
+                            <a class="dropdown-toggle text-light" aria-expanded="false" data-toggle="dropdown" href="#">Oda İşlemleri</a>
+                            <div class="dropdown-menu"><a class="dropdown-item" href="@Url.Action("RoomList", "Admin")">Oda Listeleme</a></div>
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a class="dropdown-toggle text-light" aria-expanded="false" data-toggle="dropdown" href="#">Rezervasyon İşlemleri</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="@Url.Action("reservationList", "Admin")">Rezervasyon Listeleme</a>
+                                <a class="dropdown-item" href="@Url.Action("guestList", "Admin")">Misafir Listeleme</a>
+                                <a class="dropdown-item" href="@Url.Action("paymentList", "Admin")">Ödemeler</a>
+                            </div>
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a class="dropdown-toggle text-light" aria-expanded="false" data-toggle="dropdown" href="#">Ayarlar</a>
+                            <div class="dropdown-menu"><a class="dropdown-item" href="@Url.Action("SiteSettings", "Admin")">Site Ayarı</a></div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+
+
+        @RenderBody()
+
+        
+
+
+
+
+
+
+    </div>
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/chart.min.js"></script>
+    <script src="~/assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/jquery.tablesorter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-filter.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="~/assets/js/Ludens---1-Index-Table-with-Search--Sort-Filters-1.js"></script>
+    <script src="~/assets/js/particlesJS.js"></script>
+    <script src="~/assets/js/theme.js"></script>
+</body>
+@RenderSection("Scripts", required: false)
+</html>

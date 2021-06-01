@@ -1,0 +1,85 @@
+﻿@model WebApplication3.Models.MainViewModel
+
+
+@{
+    ViewData["Title"] = "Oda Listesi";
+}
+<div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-6">
+                    <h3 class="text-dark mb-4">Oda İşlemleri</h3>
+                </div>
+            </div>
+            <div class="card" id="TableSorterCard">
+                <div class="card-header py-3">
+                    <div class="row table-topper align-items-center">
+                        <div class="col-12 col-sm-5 col-md-6 text-left" style="margin: 0px;padding: 5px 15px;">
+                            <p class="text-primary m-0 font-weight-bold">Oda Listesi</p>
+                        </div>
+                        <div class="col-12 col-sm-7 col-md-6 text-right" style="margin: 0px;padding: 5px 15px;"><button onclick="reloadPage()" class="btn btn-primary btn-sm reset" type="reset" style="margin: 2px;"><i class="fa fa-repeat"></i></button><button class="btn btn-warning btn-sm" id="zoom_in" type="button" zoomclick="ChangeZoomLevel(-10);" style="margin: 2px;"><i class="fa fa-search-plus"></i></button><button class="btn btn-warning btn-sm" id="zoom_out" type="button" zoomclick="ChangeZoomLevel(-10);" style="margin: 2px;"><i class="fa fa-search-minus"></i></button><form class="d-inline-block" id="addRoom" action="@Url.Action("addRoom", "Admin")" method="get"> <button class="btn btn-success btn-sm" id="zoom_out" type="submit" style="margin: 2px;"><i class="fa fa-plus-square"></i></button></form></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped table tablesorter" id="ipi-table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th class="text-center">Numarası</th>
+                                        <th class="text-center">adı</th>
+                                        <th class="text-center">Tipi</th>
+                                        <th class="text-center">FİYATI</th>
+                                        <th class="text-center">dURUMU</th>
+                                        <th class="text-center">Kapasite<br></th>
+                                        <th class="text-center">Yatak<br></th>
+                                        <th class="text-center">Servis<br></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    @foreach (var item in Model.rooms)
+                                    {
+                                        <tr>
+                                            <td>@item.RoomId</td>
+                                            <td>@item.OtherType.OtherTypeName</td>
+                                            <td>@item.RoomType.RoomTypeName</td>
+                                            <td>@item.OtherType.BasePrice</td>
+                                            <td>@item.Status.RoomStatusName</td>
+                                            <td>@item.OtherType.Capacity</td>
+                                            <td>@item.OtherType.BedType</td>
+                                            <td>@item.OtherType.Services</td>
+                                            <td>
+                                                <form action="@Url.Action("DeleteRoom", "Admin")" method="get">
+                                                    <input value="@item.RoomId" name="roomID" class="form-control" type="text" style="display:none;" />
+                                                    <button class="btn btn-danger" type="submit" role="button" style="margin: 2px;"><i class="fas fa-trash"></i></button>
+                                                </form>
+                                                <form action="@Url.Action("EditRoom", "Admin")" method="get">
+                                                    <input value="@item.RoomId" name="roomID" class="form-control" type="text" style="display:none;" />
+                                                    <button class="btn btn-success" role="button" type="submit" style="background: rgb(11,171,56);margin: 2px;">
+                                                        <i class="fas fa-pencil-alt"></i>
+
+                                                    </button>
+
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function reloadPage() {
+        window.location.reload()
+    }
+</script>

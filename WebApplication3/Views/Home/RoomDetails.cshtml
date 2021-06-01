@@ -1,0 +1,139 @@
+﻿@model WebApplication3.Models.MainViewModel
+@{
+    ViewData["Title"] = "RoomDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Oda Detay";
+    ViewData["Dark"] = "text-dark";
+    ViewData["Info"] = "text-info";
+
+    
+}
+
+<div class="1.kısım">
+    <div style="margin-top: 100px;" class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="baslik text-info">@foreach (var item in Model.rooms)
+                {
+                    @item.OtherType.OtherTypeName
+                }</h2>
+            </div>
+            <div class="col-md-12">
+                <h6 style="color:grey" class="baslik  py-2">@foreach (var item in Model.settings)
+                {
+                    @item.SiteName
+                }<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h6>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="2.kısım">
+    <div class="container">
+        <form name="reservation" method="get" action="/Home/Reservation">
+            <div class="row">
+                <div class="cold-md-8">
+                    @foreach (var item in Model.rooms)
+                    {
+                        <img src="/Home/RetrieveImage/@item.RoomId" alt="RoomImage">
+                        <input style="display:none" value="@item.RoomId" name="roomID" id="roomID" />
+                    }
+
+
+                </div>
+                <div style="background-color: #193441;" class="col-md-4">
+                    <div style="font-family: 'Noto Sans JP', sans-serif;" class="tarih text-light">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 mx-auto">
+                                    <div class="md-form py-2">
+                                        <label for="inputMDEx">GİRİŞ</label>
+
+                                        <input type="date" id="checkIn" name="checkIn" class="form-control">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mx-auto">
+                                    <div class="md-form py-2">
+                                        <label for="inputMDEx">ÇIKIŞ</label>
+                                        <input type="date" id="checkOUT" name="checkOUT" class="form-control">
+
+                                    </div>
+                                </div>
+                                <div class="col-6 py-2 mx-auto">
+                                    <label for="inputMDEx">MİSAFİR</label>
+                                    <input style="border-radius:5px;" type="number" value="0" id="guest " name="guest" min="0" max="5">
+                                </div>
+                                <div class="blabla mx-auto py-4">
+                                    <button class="btn btn-info btn-sm py-2" type="submit">REZERVASYON YAP</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+        <div class="hizmetler">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="baslik text-info my-5">ODA SERVİSLERİMİZ</h4>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="box ">
+                            <i class="fas fa-map-marker"></i>
+                            <h4>Gezi Planı</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ab nulla id, accusamus quidem alias ut voluptates beatae molestias, officiis sit obcaecati culpa ea commodi cum et quia omnis incidunt!</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="box">
+                            <i class="fas fa-utensils"></i>
+                            <h4>Yemek Servisi</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ab nulla id, accusamus quidem alias ut voluptates beatae molestias, officiis sit obcaecati culpa ea commodi cum et quia omnis incidunt!</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="box ">
+                            <i class="fas fa-bed"></i>
+                            <h4>Bebek Yatağı</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ab nulla id, accusamus quidem alias ut voluptates beatae molestias, officiis sit obcaecati culpa ea commodi cum et quia omnis incidunt!</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 my-5">
+                        <div class="box ">
+                            <i class="fas fa-car"></i>
+                            <h4>Araba Park</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ab nulla id, accusamus quidem alias ut voluptates beatae molestias, officiis sit obcaecati culpa ea commodi cum et quia omnis incidunt!</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4  my-5">
+                        <div class="box ">
+                            <i class="fas fa-toilet"></i>
+                            <h4>Temizlik/Hijyen</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ab nulla id, accusamus quidem alias ut voluptates beatae molestias, officiis sit obcaecati culpa ea commodi cum et quia omnis incidunt!</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4  my-5">
+                        <div class="box ">
+                            <i class="fas fa-cocktail"></i>
+                            <h4>Bar</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum ab nulla id, accusamus quidem alias ut voluptates beatae molestias, officiis sit obcaecati culpa ea commodi cum et quia omnis incidunt!</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <hr>
+<script>
+    window.onload = function () {
+
+        document.getElementById('checkIn').valueAsDate = new Date();
+        var a = new Date();
+        a.setDate(a.getDate() + 1)
+        document.getElementById('checkOUT').valueAsDate = a;
+    };
+</script>

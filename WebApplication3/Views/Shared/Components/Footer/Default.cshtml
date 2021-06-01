@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApplication3.Models.Setting>
+<footer style="margin-top: 200px;" class="container-fluid bg-grey py-3 text-light">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="logo-part">
+                                @foreach (var item in Model)
+                                {
+                                    <h2>@item.SiteName</h2>
+                                    <p>@item.Address</p>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-md-6 px-4">
+                            <h6>HAKKIMIZDA</h6>
+                            <p>@foreach (var item in Model)
+                            {
+                                @item.AboutUs
+                            }</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 px-4">
+                            <h6>SOSYAL MEDYA</h6>
+                            <div class="social">
+                                <div class="addthis_inline_follow_toolbox"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 px-4">
+                            <h6>KONUM</h6>
+                            <iframe src="@foreach (var item in Model)
+                            {
+                                @item.Location
+                            }
+                            " width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <p class=" text-center">Tüm hakları saklıdır © @foreach (var item in Model)
+        {
+            @item.SiteName
+        } | 2020-@DateTime.Today.Year </p>
+    </footer>

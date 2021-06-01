@@ -1,0 +1,111 @@
+﻿@model WebApplication3.Models.MainViewModel
+
+
+@{
+    ViewData["Title"] = "Oda Düzenleme";
+}
+
+
+<div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <div class="container-fluid">
+                            <h1>Oda Düzenleme</h1>
+                            <hr>
+                            @foreach (var item in Model.rooms)
+                            {
+                                <form id="EditForm" action="@Url.Action("editRM", "Admin")" method="get">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div id="successfail"></div>
+                                        </div>
+                                    </div>
+                                    <input style="display:none" name="roomID" id="roomID" value="@item.RoomId" />
+                                    <div class="form-row">
+                                        <div class="col-12 col-md-6" id="message">
+                                            <div class="form-group">
+                                                <label for="from-name">Oda Odı</label><span class="required-input">*</span>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-home"></i></span></div><input class="form-control" type="text" id="roomName" name="roomName" required="" value="@item.OtherType.OtherTypeName" placeholder="Oda Adı">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="from-email">Oda Tipi</label><span class="required-input">*</span>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-map-pin"></i></span></div><select id="roomTypeName" name="roomTypeName" class="form-control">
+                                                        <optgroup>
+                                                            @foreach (var type in Model.roomtype)
+                                                            {
+
+                                                                <option name="roomTypeName" id="roomTypeName" value="@type.RoomTypeId">@type.RoomTypeName</option>
+                                                            }
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-12 col-sm-6 col-md-12 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="from-phone">Fiyat</label><span class="required-input">*</span>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-bitcoin"></i></span></div><input value="@item.OtherType.BasePrice" class="form-control" type="text" id="price" name="price" required="" placeholder="Fiyat">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="from-phone"><strong>Kapasite</strong><br></label><span class="required-input">*</span>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-battery-half"></i></span></div><input value="@item.OtherType.Capacity" class="form-control" type="text" id="capacity" name="capacity" required="" placeholder="Kapasite">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-md-12 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="from-calltime">Oda Durumu</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-hourglass-start"></i></span></div><select class="form-control" id="roomStatusName" name="roomStatusName">
+                                                                <optgroup>
+                                                                    @foreach (var st in Model.roomstatus)
+                                                                    {
+                                                                        <option id="roomStatusName" name="roomStatusName"value="@st.RoomStatusId">@st.RoomStatusName</option>
+                                                                    }
+                                                                </optgroup>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="from-phone">Yatak Tipi<br></label><span class="required-input">*</span>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-bitcoin"></i></span></div><input value="@item.OtherType.BedType" class="form-control" type="text" id="bedType" name="bedType" required="" placeholder="Yatak Tipi">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                            <label for="from-phone">Servisler</label><span class="required-input">*</span>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-gears"></i></span></div><textarea name="services" id="services" class="form-control">@item.OtherType.Services</textarea>
+                                                            </div>
+                                                        </div><button class="btn btn-primary btn-block" type="submit">Submit <i class="fa fa-chevron-circle-right"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr class="d-flex d-md-none">
+                                        </div>
+                                        
+                                    </div>
+                                </form>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

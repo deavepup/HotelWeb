@@ -1,0 +1,40 @@
+﻿@model WebApplication3.Models.MainViewModel
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Dark"] = "text-dark";
+    ViewData["Info"] = "text-info";
+}
+
+<div style="margin-top:200px;font-family: 'Playfair Display', serif" class="iletişim">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8">
+                <h3><strong> İLETİŞİM BİLGİLERİMİZ</strong></h3>
+                @foreach (var item in Model.settings)
+                {
+                    <p><strong>Adres:</strong> @item.Address</p>
+                    <p><strong>Telefon:</strong>@item.Phone</p>
+                    <p><strong>E-mail:</strong> @item.Email</p>
+                    <p><strong>Fax:</strong> @item.Fax </p>
+                }
+
+            </div>
+            <div class="col-xl-4">
+                <img style="border-radius: 10px; width:100%;" src="/Home/Image/1" alt="">
+                    </div>
+        
+
+                </div>
+        
+
+            </div>
+        </div>
+        <div style="margin-top:100px" class="konum text-center">
+    <iframe src="@foreach (var item in Model.settings)
+    {
+        @item.Location
+    }
+    " width="1000" height="800" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+

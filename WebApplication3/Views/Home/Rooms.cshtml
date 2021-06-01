@@ -1,0 +1,46 @@
+﻿@model WebApplication3.Models.MainViewModel
+
+@{
+    ViewData["Rooms"] = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Odalarımız";
+    ViewData["Dark"] = "text-dark";
+    ViewData["Info"] = "text-info";
+}
+<div class="odafiyatlari mx-auto">
+    <div class="odaimg">
+        <div class="container">
+            <h1 style="margin-top: 200px; margin-bottom: 200px;font-family: 'Playfair Display', serif;" class="text-center text-dark ">ODALARIMIZ</h1>
+            <div class="row">
+                @foreach (var item in Model.rooms)
+                {
+                    <div class="col-xl-4 py-4">
+                        <div style="border-radius: 10px;width: 18rem;" class="card mx-auto">
+                            <img class="card-img-top " src="/Home/RetrieveImage/@item.RoomId" alt="Room Image">
+                            <div class="card-body">
+                                <form action="/Home/RoomDetails" method="get">
+                                    <input value="@item.RoomId" name="roomID" class="form-control" type="text" style="display:none;" />
+                                    <h6 class="card-text status">Durum:@item.Status.RoomStatusName</h6><br>
+                                    <h5 class="card-title">@item.OtherType.OtherTypeName</h5>
+                                    <h6 class="card-title">Oda Tipi:@item.RoomType.RoomTypeName</h6>
+                                    <h6 class="card-text">@item.OtherType.BasePrice₺ / Gecelik</h6><br>
+                                    <h6 class="card-text">Kapasite: @item.OtherType.Capacity</h6><br>
+                                    <h6 class="card-text">Yatak: @item.OtherType.BedType</h6><br>
+                                    <h6 class="card-text">Servis: @item.OtherType.Services</h6><br>
+
+
+                                    <button type="submit" class="btn btn-info">Odayı Seç</button>
+                                </form>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!--ODA BİTİŞ-->
